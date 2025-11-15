@@ -1,0 +1,37 @@
+#Docker commands
+
+
+##build
+
+-> docker build -t <set image name> <path>
+
+
+##basic
+
+-> docker run <image>
+-> docker run -it <image> (-it creates a terminal and will open inside the terminal. ctrl+d to come out of the container)
+-> docker run -it --name <set container name> <image> (sets a name for container)
+-> docker run -it -p 8000:8000 my-app (first 8000 --> laptop port, second 8000 --> container port, and they are both mapped)
+-> docker run -it -P my-app (automatically maps with random port in the laptop with EXPOSEd port in the docker file) (ex: EXPOSE 8000 (search for this line in docker file) (we can expose n 
+    number of ports like --> EXPOSE 8000 8080 5432 3000, and they all will be mapped with a random port and also we can give a range of ports like --> EXPOSE 8001-8010))
+    "-P" is the key for auto port mapping
+-> docker run -it --rm my-app (removes the container the moment it is stopped)
+-> docker run -itd my-app (runs in detached mode. has all the interactivity but at first, it wil run in detached mode. you can exec into the ttl later by using next exec command)
+-> docker exec -it <container-name-provided after running above command> sh (this takes you back to allocated terminal and runs a shell)
+
+
+##containers
+
+-> docker ps (returns only running containers)
+-> docker ps -a (or) --all (returns all the containers)
+-> docker ps --help (will give all the options available for containers)
+-> docker container rm <container_id> (removes a container)
+
+
+##images
+
+-> docker images, docker image ls, docker image list (returns all the images)
+-> docker image rm <image_name>
+-> docker inspect <image> (returns all configuration of the image)
+
+

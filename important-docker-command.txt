@@ -35,3 +35,14 @@
 -> docker inspect <image> (returns all configuration of the image)
 
 
+##network
+
+-> docker network (get all the options)
+-> docker network create <network_name> (By default it will select bridge driver to change that we can use -d flag.)
+-> docker network create -d <driver_type> <network_name> (driver types: bridge(default), host, none, overlay, ipvlan, macvlan)
+-> docker network inspect <network_name> (returns all the details of the network)
+-> docker run -it --network <network_name> --name <container_name> <image> (this will create a container which will be connected to the mentioned custom bridge. If --network is not mentioned it will be connected to default bridge)
+-> docker network connect <network_name> <container_name> (By default a container from another bridge or another network driver cannot talk or communicate with a container in the current 
+    network driver or bridge. By using this command we can connect to a container outside the current bridge.)
+-> docker network disconnect <network_name> <container_name> (This disconnects the container from the network.)
+-> docker network rm <network_name> (deletes the network>)

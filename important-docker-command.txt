@@ -46,3 +46,24 @@
     network driver or bridge. By using this command we can connect to a container outside the current bridge.)
 -> docker network disconnect <network_name> <container_name> (This disconnects the container from the network.)
 -> docker network rm <network_name> (deletes the network>)
+
+##volume
+
+-> docker volume create <volume_name> (Creates a new volume)
+-> docker volume inspect <volume_name>(Display detailed information)
+-> docker volume ls (list volumes)
+-> docker volume prune (Remove unused local volumes)
+-> docker volume rm <volume_name> (Remove one or more volumes)
+
+-> docker run -it -v :/app/data  
+-> docker run -it \
+  --name <container_name> \
+  -v <created_volume_name>:<path of container where exactly you want it mounte>
+  <image> 
+  --> (This will mount the volume onto the container)
+
+example :
+  docker run -it \
+  --name test-container \
+  --mount source=mydata,target=/app/data \
+  ubuntu
